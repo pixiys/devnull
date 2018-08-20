@@ -16,4 +16,7 @@ this bot *should* get updates from the community.
 ## ToDo
 - [ ] Clean code
 - [ ] Add more commands
-
+ - [ ] Self assigned color roles
+ - [ ] Sandboxed exec command for code
+ - [ ] Funnn
+- [ ] Role based permissions for commands
