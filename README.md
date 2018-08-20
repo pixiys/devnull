@@ -4,10 +4,10 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 
 ## Commands
 
-- !help [command]     responds with the usage and description for a command
-- !ping               responds pong, useful for checking if bot is alive
-- !timestamp          responds with the current js timestamp
-- !github             responds with the github link for this bot
+- `!help [command]`     responds with the usage and description for a command
+- `!ping`               responds pong, useful for checking if bot is alive
+- `!timestamp`          responds with the current js timestamp
+- `!github`             responds with the github link for this bot
 
 ## Contributing
 All contributions are more than welcome!
