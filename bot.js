@@ -23,7 +23,7 @@ var cmd =
   usage: config.prefix+"help [command]",
   desc: "responds with the usage and description for a command",
   func: function (bot,msg,command,args){
-   args[0] = args[0].replace(new RegExp("^" + config.prefix), '')
+   if (args[0]) args[0] = args[0].replace(new RegExp("^" + config.prefix), '');
    if (cmd[args[0]]){
     const helpEmbed = {"title": config.prefix+args[0],"color": embedColor,"fields": [{"name": "Usage","value": cmd[args[0]].usage},{"name": "Description","value": cmd[args[0]].desc}]};
     msg.channel.send({embed: helpEmbed});
@@ -61,7 +61,7 @@ var cmd =
   usage: config.prefix+"timestamp",
   desc: "responds with the current js timestamp",
   func: function (bot,msg,command,args){
-   msg.channel.send({embed: {color:embedColor, description: msg.createdTimestamp}});
+   msg.channel.send('`'+msg.createdTimestamp+'`');
   }
  },
  github:{
