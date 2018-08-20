@@ -14,6 +14,6 @@ All contributions are more than welcome!
 this bot *should* get updates from the community.
 
 ## ToDo
-- [] Clean code
-- [] Add more commands
+- [ ] Clean code
+- [ ] Add more commands
 
