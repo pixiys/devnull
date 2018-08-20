@@ -70,13 +70,6 @@ var cmd =
   func:  function (bot,msg,command,args){
    msg.channel.send({ embed:{color:embedColor, description: "https://github.com/pixiys/devnull is the link, feel free to contribute!"}});
   }
- },
- test:{
-  usage: config.prefix+"test",
-  desc: "test command used for testing",
-  func:  function (bot,msg,command,args){
-   msg.channel.send({ embed:{color:0x0000FF, description: "Haz, you idiot. *-Haz*"}});
-  }
  }
 }
  
