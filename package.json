@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "moment": "^2.22.2"
+    "json5": "^2.0.1",
+    "moment": "^2.22.2",
+    "vm2": "^3.6.3"
   }
 }
