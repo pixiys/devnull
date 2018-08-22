@@ -1,4 +1,5 @@
 # devnull
+[![CodeFactor](https://www.codefactor.io/repository/github/pixiys/devnull/badge/master)](https://www.codefactor.io/repository/github/pixiys/devnull/overview/master)
 
 a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.js</a>.
 
