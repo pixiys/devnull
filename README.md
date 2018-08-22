@@ -12,14 +12,13 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 - `!timestamp`          responds with the current js timestamp
 - `!exec <code>`        executes javascript code and responds with the result
 
+## Requirements
+devnull requires [Docker Compose](https://docs.docker.com/compose/) and npm.
+
+## Running
+To start the bot run `sh up.sh`
+To stop the bot run `sh down.sh`
+
 ## Contributing
 All contributions are more than welcome!
 This bot *should* get updates from the community.
-
-## ToDo
-- [x] Clean code
-- [ ] Add more commands
-  - [x] Self assigned color roles
-  - [x] Sandboxed exec command for code
-  - [ ] Funnn
-- [ ] Role based permissions for commands

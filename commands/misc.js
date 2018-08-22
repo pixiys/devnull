@@ -15,7 +15,7 @@
    } else { var code = args.join(' '); }
    var output = { console: [], result: null };
    var console = { log: s => { output.console.push(s) } };
-   const vm = new VM({ console: 'redirect', timeout: 1000, sandbox: { output, console } });
+   const vm = new VM({ console: 'redirect', timeout: 1000, sandbox: { output, console, Buffer:{} }});
    try { output.result = vm.run(code); } catch (e) { output.result = e + ''; }
    if (!Array.isArray(output.console)) {
     output.console = [];
