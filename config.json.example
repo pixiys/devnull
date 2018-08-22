@@ -2,7 +2,7 @@
  "name": "name",
  "token": "your doscord bot token",
  "prefix": "!",
- "embedColor": "0x19ccb6"
+ "embedColor": "0x19ccb6",
  "colorRoles": {
   "red": "g33ks",
   "orange": "var x = 3;",
