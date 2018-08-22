@@ -3,19 +3,11 @@
   usage: config.prefix + "flip",
   desc: "Flips a coin.",
   func: function(bot, msg, command, args) {
-   function doRandHT() {
-    var rand = ['Heads!', 'Tails!']
-
-    return rand[Math.floor(Math.random() * rand.length)];
-   }
    msg.channel.send({
     embed: {
-     title: "~COINFLIP~",
+     title: "Coinflip",
      color: config.embedColor,
-     fields: [{
-      name: "The winner is",
-      value: doRandHT()
-     }]
+     description: "The winner is " + ((Math.random() >= 0.5) ? "Heads!" : "Tails!")
     }
    });
   }
