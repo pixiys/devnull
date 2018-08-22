@@ -1,5 +1,6 @@
 {
  "name": "name",
  "token": "your doscord bot token",
- "prefix": "!"
+ "prefix": "!",
+ "embedColor": "0x19ccb6"
 }

@@ -15,7 +15,7 @@ All contributions are more than welcome!
 this bot *should* get updates from the community.
 
 ## ToDo
-- [ ] Clean code
+- [x] Clean code
 - [ ] Add more commands
   - [ ] Self assigned color roles
   - [x] Sandboxed exec command for code
