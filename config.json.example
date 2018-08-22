@@ -3,4 +3,12 @@
  "token": "your doscord bot token",
  "prefix": "!",
  "embedColor": "0x19ccb6"
+ "colorRoles": {
+  "red": "g33ks",
+  "orange": "var x = 3;",
+  "yellow": "mechanical keyboard",
+  "green": "n3rds",
+  "blue": "stuff",
+  "purple": "noobz"
+ }
 }

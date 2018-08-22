@@ -5,14 +5,18 @@
   func: function (bot, msg, command, args) {
    if (args[0]) args[0] = args[0].replace(new RegExp("^" + config.prefix), '');
    if (cmd[args[0]]) {
-    const helpEmbed = {
+    var helpEmbed = {
      title: config.prefix + args[0],
      color: config.embedColor,
      fields: [{
       name: "Usage",
       value: cmd[args[0]].usage
-     }, { name: "Description", value: cmd[args[0]].desc }]
+     }, { 
+      name: "Description", 
+      value: cmd[args[0]].desc 
+     }]
     };
+    if (cmd[args[0]].help) helpEmbed.fields.push({name: "Extra", value: cmd[args[0]].help});
     msg.channel.send({ embed: helpEmbed });
    } else if (!args[0]) {
     var helpEmbed = { title: config.name + " Command Help", color: config.embedColor, fields: [] };

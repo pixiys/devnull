@@ -10,9 +10,10 @@ config.embedColor = eval('('+config.embedColor+')');
 
 const baseCmd = eval('('+fs.readFileSync(__dirname+'/commands/base.js')+')');
 const utilCmd = eval('('+fs.readFileSync(__dirname+'/commands/util.js')+')');
+const userCmd = eval('('+fs.readFileSync(__dirname+'/commands/user.js')+')');
 const funCmd  = eval('('+fs.readFileSync(__dirname+'/commands/fun.js') +')');
 const miscCmd = eval('('+fs.readFileSync(__dirname+'/commands/misc.js')+')');
-var cmd = Object.assign({}, baseCmd, utilCmd, funCmd, miscCmd);
+var cmd = Object.assign({}, baseCmd, utilCmd, userCmd, funCmd, miscCmd);
 
 process.on('unhandledRejection', r=>console.error(r));
 process.on('error', e=>console.log(e));
