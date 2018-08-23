@@ -1,9 +1,10 @@
-const fs      = require('fs');
-const Discord = require('discord.js');
-const moment  = require('moment');
-const {VM}    = require('vm2');
-const JSON5   = require('json5');
-const client  = new Discord.Client();
+const fs          = require('fs');
+const fortune     = require('fortune-teller')
+const Discord     = require('discord.js');
+const moment      = require('moment');
+const {VM}        = require('vm2');
+const JSON5       = require('json5');
+const client      = new Discord.Client();
 
 var config        = require("./config.json");
 config.embedColor = eval('('+config.embedColor+')');

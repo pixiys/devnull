@@ -11,5 +11,18 @@
     }
    });
   }
+ },
+ quote: {
+  usage: config.prefix + "quote",
+  desc: "Quote of the day.",
+  func: function(bot, msg, command, args) {
+   msg.channel.send({
+    embed: {
+     title: "Quote",
+     color: config.embedColor,
+     description: fortune.fortune()
+    }
+   });
+  }
  }
 }
