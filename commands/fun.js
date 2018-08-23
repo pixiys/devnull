@@ -25,8 +25,8 @@
    });
   }
  },
- magic8ball: {
-  usage: config.prefix + "magic8ball <question>",
+ ask: {
+  usage: config.prefix + "ask <question>",
   desc: "Magic 8-ball",
   func: function(bot, msg, command, args) {
 
