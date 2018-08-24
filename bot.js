@@ -40,7 +40,7 @@ client.on('message', msg => {
  if (!Array.isArray(permissions[command])) {if (msg.member.roles.find("name", permissions[command])) exec(); return; }
  if (permissions[command].indexOf("+above+") < 0) { for (var i in permissions[command]) if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;} return;}
  for (var i in permissions[command]) {
-  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.comparePostitionTo(msg.member.guild.roles.find("name", permissions[command][i-1])) >= 0) exec(); return;}
+  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.comparePostitionTo(msg.member.guild.roles.find("name", permissions[command][i-1])) >= 0){exec(); return;}}
   if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;}
  }
  exec();
