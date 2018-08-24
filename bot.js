@@ -40,11 +40,13 @@ client.on('message', msg => {
  if (!Array.isArray(permissions[command])) {if (msg.member.roles.find("name", permissions[command])) exec(); return; }
  if (permissions[command].indexOf("+above+") < 0) { for (var i in permissions[command]) if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;} return;}
  for (var i in permissions[command]) {
-  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.comparePostitionTo(msg.member.guild.roles.find("name", permissions[command][i-1])) >= 0){exec(); return;}}
+  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.calculatedPosition >= msg.member.guild.roles.find("name", permissions[command][i-1]).calculatedPosition){exec(); return;}}
   if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;}
  }
  exec();
 });
+
+for (var i in cmd.length) if (cmd[i].init) cmd[i].init();
 
 try {
  client.login(config.token);
