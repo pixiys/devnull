@@ -1,5 +1,4 @@
 const fs          = require('fs');
-const fortune     = require('fortune-teller')
 const Discord     = require('discord.js');
 const moment      = require('moment');
 const {VM}        = require('vm2');

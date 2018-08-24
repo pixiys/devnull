@@ -17,7 +17,7 @@
      }]
     };
     if (cmd[args[0]].help) helpEmbed.fields.push({name: "Extra", value: cmd[args[0]].help});
-    msg.channel.send({ embed: helpEmbed });
+    msg.author.send({ embed: helpEmbed });
    } else if (!args[0]) {
     var helpEmbed = { title: config.name + " Command Help", color: config.embedColor, fields: [] };
     Object.keys(cmd).map(x => { helpEmbed.fields.push({ name: cmd[x].usage, value: cmd[x].desc }); });

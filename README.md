@@ -10,7 +10,7 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 - `!github`             Responds with the Github link for this bot.
 - `!color <color>`      Gives you the role of a given color.
 - `!flip`               Flips a coin.
-- `!quote`              Quote of the day.
+- `!quote [regex]`      Quote of the day.
 - `!ask`                Responds to the question you ask it.
 - `!timestamp`          Responds with the current Js timestamp.
 - `!exec <code>`        Executes Javascript code and responds with the result.
