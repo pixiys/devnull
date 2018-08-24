@@ -18,6 +18,10 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 ## Requirements
 devnull requires [Docker Compose](https://docs.docker.com/compose/) and npm.
 
+## Config
+devnull requires two config files, `config.json`, and `permissions.json`. you can copy the example files and rename them.
+`permissions.json` works by having the command name as the key, and either a string or an array of strings as a value. `+above+` allows any role higher than the previous in the array.
+
 ## Running
 To start the bot run `sh up.sh`
 To stop the bot run `sh down.sh`

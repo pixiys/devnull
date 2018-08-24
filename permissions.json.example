@@ -1,0 +1,4 @@
+{
+ "ping":"ping",
+ "exec":["mod", "+above+"]
+}
