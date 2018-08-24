@@ -6,6 +6,7 @@ const JSON5       = require('json5');
 const client      = new Discord.Client();
 
 var config        = require("./config.json");
+var alias         = require('./alias.json');
 const permissions = require("./permissions.json");
 config.embedColor = eval('('+config.embedColor+')');
 
@@ -26,7 +27,9 @@ client.on('ready', () => {
 client.on('message', msg => {
  if (msg.author.bot) return;
  if (msg.content.indexOf(config.prefix) !== 0) return;
- 
+ const command0 = msg.content.slice(config.prefix.length).trim().split(/ +/g).shift().toLowerCase();
+ if (alias[command0]) msg.content = alias[command0];
+
  const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
  const command = args.shift().toLowerCase();
  const exec = ()=>cmd[command].func(this.bot, msg, command, args); 

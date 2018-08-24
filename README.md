@@ -5,21 +5,22 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 
 ## Commands
 
-- `!help [command]`     Responds with the usage and description for a command.
-- `!ping`               Responds with the time, and latency between the server and Discord. 
-- `!github`             Responds with the Github link for this bot.
-- `!color <color>`      Gives you the role of a given color.
-- `!flip`               Flips a coin.
-- `!quote [regex]`      Quote of the day.
-- `!ask`                Responds to the question you ask it.
-- `!timestamp`          Responds with the current Js timestamp.
-- `!exec <code>`        Executes Javascript code and responds with the result.
+- `!help [command]` Responds with the usage and description for a command.
+- `!ping` Responds with the time, and latency between the server and Discord. 
+- `!github` Responds with the Github link for this bot.
+- `!alias [reset]|<name> <command>`              Creates an alias for another command.
+- `!color <color>` Gives you the role of a given color.
+- `!flip` Flips a coin.
+- `!quote [regex]` Quote of the day.
+- `!ask` Responds to the question you ask it.
+- `!timestamp` Responds with the current Js timestamp.
+- `!exec <code>` Executes Javascript code and responds with the result.
 
 ## Requirements
 devnull requires [Docker Compose](https://docs.docker.com/compose/) and npm.
 
 ## Config
-devnull requires two config files, `config.json`, and `permissions.json`. you can copy the example files and rename them.
+devnull requires three config files, `config.json`, `permissions.json`, and `alias.json`. you can copy the example files and rename them.
 `permissions.json` works by having the command name as the key, and either a string or an array of strings as a value. `+above+` allows any role higher than the previous in the array.
 
 ## Running
