@@ -73,14 +73,15 @@
    });
   },
   func: function (bot, msg, command, args) {
-   if (typeof args[1] != 'number') args[1] = 0;
+   args[1]=isNaN(parseInt(args[1]))?0:parseInt(args[1]);
+   console.log(args[1])
    try{
     if (!args[0]) throw err;
     var fbooks = global.books.filter(x=>x.title.match(new RegExp(args[0], 'ig'))), split = [];
     if (fbooks.length == 0) throw err;
     for (var i=0; i<fbooks.length; i+=10) split.push(fbooks.map(x=>'['+x.title+']('+x.link+')').slice(i,i+10));
-    msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found "+fbooks.length+" book(s) and split into "+split.length+" pages"} });
-    msg.channel.send({ embed: { color: config.embedColor, description: "page "+args[1]+':\n'+split[args[1]].join('\n')} });
+    msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found "+fbooks.length+" book(s) and split into "+(split.length-1)+" pages"} });
+    msg.channel.send({ embed: { color: config.embedColor, description: "page "+args[1]+':\n'+(split[args[1]]?split[args[1]].join('\n'):'')} });
    } catch (e) {
     console.log(e)
     msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found 0 books\n"} }); 

@@ -8,7 +8,8 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 - `!help [command]` Responds with the usage and description for a command.
 - `!ping` Responds with the time, and latency between the server and Discord. 
 - `!github` Responds with the Github link for this bot.
-- `!alias [reset]|<name> <command>`              Creates an alias for another command.
+- `!alias [reset]|<name> <command>` Creates an alias for another command.
+- `!books <regexr> [page]` Responds with all matching books in https://please.dont-hack.me/hacking/books/
 - `!color <color>` Gives you the role of a given color.
 - `!flip` Flips a coin.
 - `!quote [regex]` Quote of the day.
