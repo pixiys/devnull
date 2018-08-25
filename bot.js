@@ -1,8 +1,11 @@
+var   glo         = {};
 const fs          = require('fs')
 const Discord     = require('discord.js');
 const moment      = require('moment');
 const {VM}        = require('vm2');
 const JSON5       = require('json5');
+const request     = require("request");
+const cheerio     = require("cheerio");
 const client      = new Discord.Client();
 
 var config        = require("./config.json");
@@ -46,7 +49,7 @@ client.on('message', msg => {
  exec();
 });
 
-for (var i in cmd.length) if (cmd[i].init) cmd[i].init();
+Object.keys(cmd).forEach(i=>{if (cmd[i].init) cmd[i].init();});
 
 try {
  client.login(config.token);

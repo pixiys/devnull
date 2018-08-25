@@ -13,7 +13,7 @@
   }
  },
  quote: {
-  usage: config.prefix + "quote [regex]",
+  usage: config.prefix + "quote [regexp]",
   desc: "Quote of the day.",
   func: function(bot, msg, command, args) {
    var fortunelist = [];

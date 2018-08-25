@@ -55,5 +55,36 @@
    alias = Object.assign(alias, al);
    msg.channel.send({ embed: { color: config.embedColor, description: "Alias added: "+JSON5.stringify(al) } });
   }
+ },
+ books: {
+  usage: config.prefix + "books <regexr> [page]",
+  desc: "Responds with all matching books in <https://please.dont-hack.me/hacking/books/>",
+  init: ()=>{
+   global.books = [];
+   request({
+    uri: "https://please.dont-hack.me/hacking/books/",
+    }, function(error, response, body) {
+    var $ = cheerio.load(body);
+    $("body pre a").each(function() {
+     var text = $(this).text();
+     var href = "https://please.dont-hack.me/hacking/books/"+$(this).attr("href");
+     global.books.push({title:text, link:href});
+    });
+   });
+  },
+  func: function (bot, msg, command, args) {
+   if (typeof args[1] != 'number') args[1] = 0;
+   try{
+    if (!args[0]) throw err;
+    var fbooks = global.books.filter(x=>x.title.match(new RegExp(args[0], 'ig'))), split = [];
+    if (fbooks.length == 0) throw err;
+    for (var i=0; i<fbooks.length; i+=10) split.push(fbooks.map(x=>'['+x.title+']('+x.link+')').slice(i,i+10));
+    msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found "+fbooks.length+" book(s) and split into "+split.length+" pages"} });
+    msg.channel.send({ embed: { color: config.embedColor, description: "page "+args[1]+':\n'+split[args[1]].join('\n')} });
+   } catch (e) {
+    console.log(e)
+    msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found 0 books\n"} }); 
+   }
+  }
  }
 }
