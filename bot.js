@@ -1,4 +1,3 @@
-var   glo         = {};
 const fs          = require('fs')
 const Discord     = require('discord.js');
 const moment      = require('moment');
