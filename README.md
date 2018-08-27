@@ -22,7 +22,9 @@ devnull requires [Docker Compose](https://docs.docker.com/compose/) and npm.
 
 ## Config
 devnull requires three config files, `config.json`, `permissions.json`, and `alias.json`. you can copy the example files and rename them.
-`permissions.json` works by having the command name as the key, and either a string or an array of strings as a value. `+above+` allows any role higher than the previous in the array.
+`permissions.json` works by having the command name as the key, and either a string or an array of strings as a value.
+`+above+` allows any role higher than the previous in the array.
+To disable a command set its permission to `[]`
 
 ## Running
 To start the bot run `sh up.sh`

@@ -4,6 +4,7 @@
   desc: "Responds with the usage and description for a command.",
   func: function (bot, msg, command, args) {
    if (args[0]) args[0] = args[0].replace(new RegExp("^" + config.prefix), '');
+   if (Array.isArray(permissions[args[0]]) && !permissions[args[0]].length) {msg.channel.send({ embed: { color: config.embedColor, description: "no command " + args[0] + '.' } }); return;}
    if (cmd[args[0]]) {
     var helpEmbed = {
      title: config.prefix + args[0],
@@ -20,7 +21,10 @@
     msg.author.send({ embed: helpEmbed });
    } else if (!args[0]) {
     var helpEmbed = { title: config.name + " Command Help", color: config.embedColor, fields: [] };
-    Object.keys(cmd).map(x => { helpEmbed.fields.push({ name: cmd[x].usage, value: cmd[x].desc+(permissions[x]?' (requires permission)':'') }); });
+    Object.keys(cmd).map(x => {
+     if (Array.isArray(permissions[x]) && !permissions[x].length) return; 
+     helpEmbed.fields.push({ name: cmd[x].usage, value: cmd[x].desc+(permissions[x]?' (requires permission)':'') }); 
+    });
     msg.author.send({ embed: helpEmbed });
    } else {
     msg.channel.send({ embed: { color: config.embedColor, description: "no command " + args[0] + '.' } });

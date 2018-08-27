@@ -38,9 +38,9 @@ client.on('message', msg => {
 
  if (!cmd[command]) return;
  if (!permissions[command]) {exec(); return;}
- if (!msg.member){msg.channel.send({ embed: { color: config.embedColor, description: "You must be in a server to use this command."}});return;}
+ if (!msg.member) {msg.channel.send({ embed: { color: config.embedColor, description: "You must be in a server to use this command."}});return;}
  if (!Array.isArray(permissions[command])) {if (msg.member.roles.find("name", permissions[command])) exec(); return; }
- if (permissions[command].indexOf("+above+") < 0) { for (var i in permissions[command]) if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;} return;}
+ if (!array.length) return;
  for (var i in permissions[command]) {
   if (permissions[command][i] == "+above+") {if (msg.member.highestRole.calculatedPosition >= msg.member.guild.roles.find("name", permissions[command][i-1]).calculatedPosition){exec(); return;}}
   if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;}
