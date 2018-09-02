@@ -10,6 +10,8 @@
   usage: config.prefix + "exec <code>",
   desc: "Executes Javascript code and responds with the result.",
   func: function (bot, msg, command, args) {
+   const {VM} = require('vm2');
+   const JSON5 = require('json5');
    if (msg.content.match(/```(js)?([\S\s]*)```/)) {
     var code = msg.content.match(/```(js)?([\S\s]*)```/)[0].replace(/```(js)?([\S\s]*)```/, (...x) => x[2]).replace(/\/\/.*\n/g, '\n').replace(/^\n+|\n+$/gm, '');
    } else { var code = args.join(' '); }

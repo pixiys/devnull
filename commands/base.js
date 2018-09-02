@@ -35,6 +35,7 @@
   usage: config.prefix + "ping",
   desc: "Responds with the time, and latency between the server and Discord.",
   func: function (bot, msg, command, args) {
+   const moment = require('moment');
    msg.channel.send({ embed: { title: "Pong", color: config.embedColor, fields: [{ name: "Time", value: moment().format('LTS') }, { name: "Latency", value: Math.round(client.ping) + "ms" }] } });
   }
  },
@@ -62,19 +63,23 @@
  },
  books: {
   usage: config.prefix + "books <regexr> [page]",
-  desc: "Responds with all matching books in <https://please.dont-hack.me/hacking/books/>",
+  desc: "Responds with all matching books in <https://please.dont-hack.me/books/hacking/>",
   init: ()=>{
-   global.books = [];
-   request({
-    uri: "https://please.dont-hack.me/hacking/books/",
-    }, function(error, response, body) {
-    var $ = cheerio.load(body);
-    $("body pre a").each(function() {
-     var text = $(this).text();
-     var href = "https://please.dont-hack.me/hacking/books/"+$(this).attr("href");
-     global.books.push({title:text, link:href});
-    });
-   });
+   function getBooks(){
+    global.books = [];
+    require("request")({
+     uri: "https://please.dont-hack.me/books/hacking/",
+     }, function(error, response, body) {
+     var $ = require("cheerio").load(body);
+     $("body pre a").each(function() {
+      var text = $(this).text();
+      var href = "https://please.dont-hack.me/books/hacking/"+$(this).attr("href");
+      global.books.push({title:text, link:href});
+     });
+    }); 
+   }
+   getBooks();
+   setInterval(function(){getBooks()}, 8*60*60*60*1000);
   },
   func: function (bot, msg, command, args) {
    args[1]=isNaN(parseInt(args[1]))?0:parseInt(args[1]);
@@ -87,7 +92,6 @@
     msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found "+fbooks.length+" book(s) and split into "+split.length+" pages"} });
     msg.channel.send({ embed: { color: config.embedColor, description: "page "+args[1]+':\n'+(split[args[1]]?split[args[1]].join('\n'):'')} });
    } catch (e) {
-    console.log(e)
     msg.channel.send({ embed: { title: "Books", color: config.embedColor, description: "Found 0 books\n"} }); 
    }
   }

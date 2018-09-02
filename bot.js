@@ -1,10 +1,5 @@
-const fs          = require('fs')
+const fs          = require('fs');
 const Discord     = require('discord.js');
-const moment      = require('moment');
-const {VM}        = require('vm2');
-const JSON5       = require('json5');
-const request     = require("request");
-const cheerio     = require("cheerio");
 const client      = new Discord.Client();
 
 var config        = require("./config.json");
@@ -40,12 +35,11 @@ client.on('message', msg => {
  if (!permissions[command]) {exec(); return;}
  if (!msg.member) {msg.channel.send({ embed: { color: config.embedColor, description: "You must be in a server to use this command."}});return;}
  if (!Array.isArray(permissions[command])) {if (msg.member.roles.find("name", permissions[command])) exec(); return; }
- if (!array.length) return;
+ if (!permissions[command].length) return;
  for (var i in permissions[command]) {
-  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.calculatedPosition >= msg.member.guild.roles.find("name", permissions[command][i-1]).calculatedPosition){exec(); return;}}
+  if (permissions[command][i] == "+above+") {if (msg.member.highestRole.calculatedPosition >= msg.member.guild.roles.find("name", permissions[command][(i-1)]).calculatedPosition){exec(); return;}}
   if (msg.member.roles.find("name", permissions[command][i])) {exec(); return;}
  }
- exec();
 });
 
 Object.keys(cmd).forEach(i=>{if (cmd[i].init) cmd[i].init();});

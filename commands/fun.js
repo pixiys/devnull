@@ -16,15 +16,16 @@
   usage: config.prefix + "quote [regexp]",
   desc: "Quote of the day.",
   func: function(bot, msg, command, args) {
+   const fs = require('fs');
    var fortunelist = [];
-    var fortunes = {};
-    fs.readdirSync(__dirname+'/fortunes/').forEach(function(file){
-        if(!fs.statSync(__dirname+'/fortunes/' + file).isDirectory()){
-            var fo = JSON.parse(fs.readFileSync(__dirname+'/fortunes/' + file, 'utf8'));
-            fortunes[file+'.json'] = fo;
-            fortunelist = fortunelist.concat(fo);
-        }
-    });
+   var fortunes = {};
+   fs.readdirSync(__dirname+'/fortunes/').forEach(function(file){
+       if(!fs.statSync(__dirname+'/fortunes/' + file).isDirectory()){
+           var fo = JSON.parse(fs.readFileSync(__dirname+'/fortunes/' + file, 'utf8'));
+           fortunes[file+'.json'] = fo;
+           fortunelist = fortunelist.concat(fo);
+       }
+   });
    fortunes = fortunelist
    try{
    if (!args[0]) throw err;
