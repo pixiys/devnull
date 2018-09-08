@@ -4,11 +4,13 @@
   desc: "Warns a specified user",
   func: function(bot, msg, command, args) {
    
-   const reason = args.slice(1).join(' ')
+   let reason = args.slice(1).join(' ')
    let member = msg.mentions.members.first()
-   const warning = msg.guild.roles.find('name', config.warningRole)
-   const author = msg.author.id
-   const wchannel = client.channels.find('name', config.actionsChannel)
+   let warning = msg.guild.roles.find('name', config.warningRole)
+   let author = msg.author.id
+   let wchannel = client.channels.find('name', config.actionsChannel)
+   
+   if(!reason){reason = "no reason"}
    
    wchannel.send({
     embed: {
@@ -25,10 +27,12 @@
   desc: "Kicks a specified user.",
   func:function(bot, msg, command, args) {
 		 
-   const member = msg.mentions.members.first()
-   const reason = args.slice(1).join(' ')
-   const author = msg.author.id
-   const wchannel = client.channels.find("name", config.actionsChannel)
+   let member = msg.mentions.members.first()
+   let reason = args.slice(1).join(' ')
+   let author = msg.author.id
+   let wchannel = client.channels.find("name", config.actionsChannel)
+		 
+   if(!reason){reason = "no reason"}
 		 
    wchannel.send({
     embed: {
@@ -45,10 +49,12 @@
   desc: "Bans a specified user.",
   func: function(bot, msg, command, args) {
 		 
-   const member = msg.mentions.members.first()
-   const reason = args.slice(1).join(' ')
-   const author = msg.author.id
-   const wchannel = client.channels.find("name", config.actionsChannel)
+   let member = msg.mentions.members.first()
+   let reason = args.slice(1).join(' ')
+   let author = msg.author.id
+   let wchannel = client.channels.find("name", config.actionsChannel)
+		 
+   if(!reason){reason = "no reason"}
 		 
    wchannel.send({
     embed: {
