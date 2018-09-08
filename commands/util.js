@@ -8,12 +8,13 @@
    let member = msg.mentions.members.first()
    const warning = msg.guild.roles.find("name", "warning")
    const author = msg.author.id
+   const wchannel = client.channels.find('name', "warnings")
    
    msg.channel.send({
     embed: {
      title: "Warning",
      color: config.embedColor,
-     description: `User ` + member + ` was warned by ` + `<@` + author + `>` + ` for ` + reason + `at` + '`' + msg.createdTimestamp + '`'
+     description: `User ` + member + ` was warned by ` + `<@` + author + `>` + ` for ` + reason + ` at ` + '`' + msg.createdTimestamp + '`'
     }
    });
    member.addRole(warning)
