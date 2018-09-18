@@ -16,6 +16,9 @@ a discord bot using <a href="https://github.com/hydrabolt/discord.js/">discord.j
 - `!ask` Responds to the question you ask it.
 - `!timestamp` Responds with the current Js timestamp.
 - `!exec <code>` Executes Javascript code and responds with the result.
+- `!warn <user> <reason>` Gives the user a warning role and logs it in a specified channel. 
+- `!kick <user> <reason>` Kicks the user and logs it in a specified channel. 
+- `!ban <user> <reason>` Bans the user and logs it in a specified channel.
 
 ## Requirements
 devnull requires [Docker Compose](https://docs.docker.com/compose/) and npm.
